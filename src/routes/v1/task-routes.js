@@ -1,4 +1,5 @@
 const express = require('express')
+const {taskController} = require('../../controller')
 
 const router = express.Router()
 
@@ -6,14 +7,14 @@ router.get('/ping',(req,res)=>{
     res.send("Pong");
 })
 
-router.get('/',()=>{})
+router.get('/',taskController.getAllTodo)
 
-router.get('/:id',()=>{})
+router.get('/:id',taskController.getTodo)
 
-router.post('/',()=>{})
+router.post('/',taskController.createTodo)
 
-router.put('/',()=>{})
+router.put('/',taskController.updateTodo)
 
-router.delete('/',()=>{})
+router.delete('/',taskController.deleteTodo)
 
 module.exports = router
