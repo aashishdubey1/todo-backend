@@ -13,8 +13,8 @@ router.get('/:id',taskController.getTodo)
 
 router.post('/',taskController.createTodo)
 
-router.put('/',taskController.updateTodo)
+router.put('/:id',taskController.updateTodo)
 
-router.delete('/',taskController.deleteTodo)
+router.delete('/:id',taskController.deleteTodo)
 
 module.exports = router
