@@ -2,6 +2,7 @@ const express = require("express");
 const {PORT} = require('./config/server-config')
 const apiRouter = require('./routes');
 const errorHandler = require("./utils/error-handler");
+const connetToDb = require("./config/db-config");
 
 const app = express()
 
@@ -20,6 +21,8 @@ app.get('/',(req,res)=>{
 
 app.use(errorHandler)
 
-app.listen(PORT,()=>{
+app.listen(PORT,async ()=>{
     console.log("Server is runnig on port",PORT)
+    await connetToDb()
+    console.log("Connected to db")
 })
